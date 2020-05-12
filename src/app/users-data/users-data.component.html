@@ -1,0 +1,34 @@
+<h1> WELCOME {{newName}} </h1>
+<div id="mainDiv">
+    <h3>נא למלא פרטים למשלוח</h3>
+    <label for="cites">בחר שם של עיר:</label><br>
+<select name="my-select" [(ngModel)]="mySelect" (change)="selectChange()">
+    <option [value]="city.name" *ngFor="let city of namesOfCites">
+        {{city.name}}
+    </option>
+</select>
+<div> Selected City: {{selectedCity}}</div>
+<br>
+<div *ngIf="ifYouSelectedCity">
+    <label for="Streets">בחר שם של רחוב:</label><br>
+    <select name="my-select-street" [(ngModel)]="mySelectStreet" (change)="selectChangeStreet()">
+        <option [value]="street.id" *ngFor="let street of newStreets">
+           {{street.street_name}}
+        </option>
+    </select>
+    <br>
+    selected street : {{selectedStreet}}
+</div>
+<br>
+<form *ngIf="ifYouSelectedStreet">
+    <label>  :מספר בית</label>
+    <br>
+    <input type="number" placeholder="house number" #houseNumber>
+    <br>
+    לחץ ENTER
+    <br>
+    <button *ngIf="houseNumber.value>0" (click)="getAddressOfOder(houseNumber.value)" [routerLink]="['/order'] " > קבל כתובת למשלוח</button>
+</form>
+<br>
+<button id="logout" (click)="logout()">LOGOUT </button> 
+</div>

@@ -1,0 +1,10 @@
+h1{
+    text-align: center;
+}
+#logout{
+    background-color: red;
+    color: white;
+}
+#mainDiv{
+    margin-left: 550px;
+}
